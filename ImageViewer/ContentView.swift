@@ -1,4 +1,5 @@
 import SwiftUI
+import AppKit
 
 struct ContentView: View {
     @StateObject private var viewModel = ImageViewModel()
@@ -12,16 +13,9 @@ struct ContentView: View {
             }
         }
         .frame(minWidth: 800, minHeight: 600)
+        .background(KeyHandlerView(viewModel: viewModel))
         .onAppear {
             viewModel.loadImages()
-        }
-        .onKeyPress(.upArrow) {
-            viewModel.previousImage()
-            return .handled
-        }
-        .onKeyPress(.downArrow) {
-            viewModel.nextImage()
-            return .handled
         }
     }
 
@@ -124,5 +118,35 @@ struct ContentView: View {
             }
             .padding()
         }
+    }
+}
+
+struct KeyHandlerView: NSViewRepresentable {
+    let viewModel: ImageViewModel
+
+    func makeNSView(context: Context) -> NSView {
+        let view = NSView()
+        let monitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
+            if event.keyCode == 126 {
+                viewModel.previousImage()
+                return nil
+            } else if event.keyCode == 125 {
+                viewModel.nextImage()
+                return nil
+            }
+            return event
+        }
+        context.coordinator.monitor = monitor
+        return view
+    }
+
+    func updateNSView(_ nsView: NSView, context: Context) {}
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
+
+    class Coordinator {
+        var monitor: Any?
     }
 }

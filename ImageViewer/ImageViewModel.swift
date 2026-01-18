@@ -46,8 +46,8 @@ class ImageViewModel: ObservableObject {
                         continue
                     }
 
-                    if let pathExtension = fileURL.pathExtension.lowercased(),
-                       supportedExtensions.contains(pathExtension) {
+                    let pathExtension = fileURL.pathExtension.lowercased()
+                    if supportedExtensions.contains(pathExtension) {
                         if let image = NSImage(contentsOf: fileURL) {
                             loadedImages.append(image)
                         }
