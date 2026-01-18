@@ -91,3 +91,6 @@ iOSInjectionProject/
 
 # Mac
 .DS_Store
+
+# Google Sign-In Configuration
+**/GoogleService-Info.plist

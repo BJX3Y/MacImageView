@@ -7,17 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A1000001000000000000001 /* ImageViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000002000000000000001 /* ImageViewerApp.swift */; };
-		A1000003000000000000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000004000000000000001 /* ContentView.swift */; };
-		A1000005000000000000001 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000006000000000000001 /* ImageViewModel.swift */; };
+		2BB120542F1D186600E7231C /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1204C2F1D186600E7231C /* AppFeature.swift */; };
+		2BB120552F1D186600E7231C /* ImageViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120482F1D186600E7231C /* ImageViewerView.swift */; };
+		2BB120562F1D186600E7231C /* GoogleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120402F1D186600E7231C /* GoogleSignInButton.swift */; };
+		2BB120572F1D186600E7231C /* ImageViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1203E2F1D186600E7231C /* ImageViewerApp.swift */; };
+		2BB120582F1D186600E7231C /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120492F1D186600E7231C /* ImageViewModel.swift */; };
+		2BB120592F1D186600E7231C /* ImageDownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120462F1D186600E7231C /* ImageDownloaderView.swift */; };
+		2BB1205A2F1D186600E7231C /* SignInSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120422F1D186600E7231C /* SignInSheetView.swift */; };
+		2BB1205B2F1D186600E7231C /* GoogleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120412F1D186600E7231C /* GoogleSignInManager.swift */; };
+		2BB1205C2F1D186600E7231C /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120442F1D186600E7231C /* UserSession.swift */; };
+		2BB1205D2F1D186600E7231C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120432F1D186600E7231C /* SignInViewController.swift */; };
+		2BB1205E2F1D186600E7231C /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1204D2F1D186600E7231C /* SidebarView.swift */; };
+		2BB1205F2F1D186600E7231C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1203D2F1D186600E7231C /* ContentView.swift */; };
+		2BB120602F1D186600E7231C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BB120502F1D186600E7231C /* GoogleService-Info.plist */; };
+		2BB120612F1D186600E7231C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1204F2F1D186600E7231C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2BB1203D2F1D186600E7231C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2BB1203E2F1D186600E7231C /* ImageViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerApp.swift; sourceTree = "<group>"; };
+		2BB120402F1D186600E7231C /* GoogleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButton.swift; sourceTree = "<group>"; };
+		2BB120412F1D186600E7231C /* GoogleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInManager.swift; sourceTree = "<group>"; };
+		2BB120422F1D186600E7231C /* SignInSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSheetView.swift; sourceTree = "<group>"; };
+		2BB120432F1D186600E7231C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		2BB120442F1D186600E7231C /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		2BB120462F1D186600E7231C /* ImageDownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderView.swift; sourceTree = "<group>"; };
+		2BB120482F1D186600E7231C /* ImageViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerView.swift; sourceTree = "<group>"; };
+		2BB120492F1D186600E7231C /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
+		2BB1204C2F1D186600E7231C /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
+		2BB1204D2F1D186600E7231C /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		2BB1204F2F1D186600E7231C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2BB120502F1D186600E7231C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GoogleService-Info.plist; sourceTree = "<group>"; };
+		2BB120512F1D186600E7231C /* ImageViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageViewer.entitlements; sourceTree = "<group>"; };
 		A1000007000000000000001 /* ImageViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1000002000000000000001 /* ImageViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerApp.swift; sourceTree = "<group>"; };
-		A1000004000000000000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A1000006000000000000001 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
-		A1000008000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,23 +53,90 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BB1203F2F1D186600E7231C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2BB1203D2F1D186600E7231C /* ContentView.swift */,
+				2BB1203E2F1D186600E7231C /* ImageViewerApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2BB120452F1D186600E7231C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				2BB120402F1D186600E7231C /* GoogleSignInButton.swift */,
+				2BB120412F1D186600E7231C /* GoogleSignInManager.swift */,
+				2BB120422F1D186600E7231C /* SignInSheetView.swift */,
+				2BB120432F1D186600E7231C /* SignInViewController.swift */,
+				2BB120442F1D186600E7231C /* UserSession.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		2BB120472F1D186600E7231C /* ImageDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				2BB120462F1D186600E7231C /* ImageDownloaderView.swift */,
+			);
+			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
+		2BB1204A2F1D186600E7231C /* ImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				2BB120482F1D186600E7231C /* ImageViewerView.swift */,
+				2BB120492F1D186600E7231C /* ImageViewModel.swift */,
+			);
+			path = ImageViewer;
+			sourceTree = "<group>";
+		};
+		2BB1204B2F1D186600E7231C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				2BB120452F1D186600E7231C /* Authentication */,
+				2BB120472F1D186600E7231C /* ImageDownloader */,
+				2BB1204A2F1D186600E7231C /* ImageViewer */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		2BB1204E2F1D186600E7231C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2BB1204C2F1D186600E7231C /* AppFeature.swift */,
+				2BB1204D2F1D186600E7231C /* SidebarView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		2BB120522F1D186600E7231C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2BB1204F2F1D186600E7231C /* Assets.xcassets */,
+				2BB120502F1D186600E7231C /* GoogleService-Info.plist */,
+				2BB120512F1D186600E7231C /* ImageViewer.entitlements */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2BB120532F1D186600E7231C /* ImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				2BB1203F2F1D186600E7231C /* App */,
+				2BB1204B2F1D186600E7231C /* Features */,
+				2BB1204E2F1D186600E7231C /* Shared */,
+				2BB120522F1D186600E7231C /* Supporting Files */,
+			);
+			path = ImageViewer;
+			sourceTree = "<group>";
+		};
 		A1000010000000000000001 = {
 			isa = PBXGroup;
 			children = (
-				A1000011000000000000001 /* ImageViewer */,
+				2BB120532F1D186600E7231C /* ImageViewer */,
 				A1000012000000000000001 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		A1000011000000000000001 /* ImageViewer */ = {
-			isa = PBXGroup;
-			children = (
-				A1000002000000000000001 /* ImageViewerApp.swift */,
-				A1000004000000000000001 /* ContentView.swift */,
-				A1000006000000000000001 /* ImageViewModel.swift */,
-				A1000008000000000000001 /* Assets.xcassets */,
-			);
-			path = ImageViewer;
 			sourceTree = "<group>";
 		};
 		A1000012000000000000001 /* Products */ = {
@@ -116,6 +205,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BB120602F1D186600E7231C /* GoogleService-Info.plist in Resources */,
+				2BB120612F1D186600E7231C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,9 +217,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1000001000000000000001 /* ImageViewerApp.swift in Sources */,
-				A1000003000000000000001 /* ContentView.swift in Sources */,
-				A1000005000000000000001 /* ImageViewModel.swift in Sources */,
+				2BB120542F1D186600E7231C /* AppFeature.swift in Sources */,
+				2BB120552F1D186600E7231C /* ImageViewerView.swift in Sources */,
+				2BB120562F1D186600E7231C /* GoogleSignInButton.swift in Sources */,
+				2BB120572F1D186600E7231C /* ImageViewerApp.swift in Sources */,
+				2BB120582F1D186600E7231C /* ImageViewModel.swift in Sources */,
+				2BB120592F1D186600E7231C /* ImageDownloaderView.swift in Sources */,
+				2BB1205A2F1D186600E7231C /* SignInSheetView.swift in Sources */,
+				2BB1205B2F1D186600E7231C /* GoogleSignInManager.swift in Sources */,
+				2BB1205C2F1D186600E7231C /* UserSession.swift in Sources */,
+				2BB1205D2F1D186600E7231C /* SignInViewController.swift in Sources */,
+				2BB1205E2F1D186600E7231C /* SidebarView.swift in Sources */,
+				2BB1205F2F1D186600E7231C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ImageViewer/ImageViewer.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "ImageViewer/Supporting Files/ImageViewer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -282,7 +382,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ImageViewer/ImageViewer.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "ImageViewer/Supporting Files/ImageViewer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;

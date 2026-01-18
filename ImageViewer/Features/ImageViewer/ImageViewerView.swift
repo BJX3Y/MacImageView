@@ -1,7 +1,7 @@
 import SwiftUI
 import AppKit
 
-struct ContentView: View {
+struct ImageViewerView: View {
     @StateObject private var viewModel = ImageViewModel()
 
     var body: some View {
