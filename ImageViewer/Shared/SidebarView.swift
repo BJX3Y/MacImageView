@@ -61,7 +61,7 @@ struct SidebarView: View {
         .frame(width: 220)
         .background(Color(NSColor.windowBackgroundColor))
         .sheet(isPresented: $showSignIn) {
-            SignInSheetView(isPresented: $showSignIn)
+            AppleSignInSheetView(isPresented: $showSignIn)
         }
     }
 
@@ -70,21 +70,17 @@ struct SidebarView: View {
             showSignIn = true
         }) {
             HStack(spacing: 8) {
-                Image(systemName: "google")
+                Image(systemName: "applelogo")
                     .font(.system(size: 20))
-                Text("使用 Google 登录")
+                Text("使用 Apple 登录")
                     .font(.system(size: 13))
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
             .frame(maxWidth: .infinity)
-            .background(Color.white)
-            .foregroundColor(.primary)
+            .background(Color.black)
+            .foregroundColor(.white)
             .cornerRadius(8)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-            )
         }
         .buttonStyle(.plain)
         .padding(.horizontal, 12)
@@ -129,5 +125,42 @@ struct SidebarView: View {
             .padding(.vertical, 8)
         }
         .padding(.bottom, 8)
+    }
+}
+
+struct AppleSignInSheetView: View {
+    @Binding var isPresented: Bool
+    @StateObject private var userSession = UserSession.shared
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        VStack(spacing: 24) {
+            Text("登录")
+                .font(.system(size: 24, weight: .bold))
+                .padding(.top, 32)
+
+            Text("使用您的 Apple ID 登录以访问所有功能")
+                .font(.system(size: 14))
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 32)
+
+            AppleSignInButton {
+                performSignIn()
+            }
+            .padding(.horizontal, 32)
+
+            Spacer()
+        }
+        .frame(width: 400, height: 300)
+        .background(Color(NSColor.windowBackgroundColor))
+    }
+
+    private func performSignIn() {
+        if let window = NSApplication.shared.keyWindow,
+           let viewController = window.contentViewController {
+            userSession.login(presenting: viewController)
+            isPresented = false
+        }
     }
 }

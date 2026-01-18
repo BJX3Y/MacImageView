@@ -9,27 +9,22 @@
 /* Begin PBXBuildFile section */
 		2BB120542F1D186600E7231C /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1204C2F1D186600E7231C /* AppFeature.swift */; };
 		2BB120552F1D186600E7231C /* ImageViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120482F1D186600E7231C /* ImageViewerView.swift */; };
-		2BB120562F1D186600E7231C /* GoogleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120402F1D186600E7231C /* GoogleSignInButton.swift */; };
+		2BB120562F1D186600E7231C /* AppleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120402F1D186600E7231C /* AppleSignInButton.swift */; };
 		2BB120572F1D186600E7231C /* ImageViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1203E2F1D186600E7231C /* ImageViewerApp.swift */; };
 		2BB120582F1D186600E7231C /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120492F1D186600E7231C /* ImageViewModel.swift */; };
 		2BB120592F1D186600E7231C /* ImageDownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120462F1D186600E7231C /* ImageDownloaderView.swift */; };
-		2BB1205A2F1D186600E7231C /* SignInSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120422F1D186600E7231C /* SignInSheetView.swift */; };
-		2BB1205B2F1D186600E7231C /* GoogleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120412F1D186600E7231C /* GoogleSignInManager.swift */; };
+		2BB1205B2F1D186600E7231C /* AppleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120412F1D186600E7231C /* AppleSignInManager.swift */; };
 		2BB1205C2F1D186600E7231C /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120442F1D186600E7231C /* UserSession.swift */; };
-		2BB1205D2F1D186600E7231C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120432F1D186600E7231C /* SignInViewController.swift */; };
 		2BB1205E2F1D186600E7231C /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1204D2F1D186600E7231C /* SidebarView.swift */; };
 		2BB1205F2F1D186600E7231C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1203D2F1D186600E7231C /* ContentView.swift */; };
-		2BB120602F1D186600E7231C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BB120502F1D186600E7231C /* GoogleService-Info.plist */; };
 		2BB120612F1D186600E7231C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1204F2F1D186600E7231C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2BB1203D2F1D186600E7231C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2BB1203E2F1D186600E7231C /* ImageViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerApp.swift; sourceTree = "<group>"; };
-		2BB120402F1D186600E7231C /* GoogleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButton.swift; sourceTree = "<group>"; };
-		2BB120412F1D186600E7231C /* GoogleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInManager.swift; sourceTree = "<group>"; };
-		2BB120422F1D186600E7231C /* SignInSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSheetView.swift; sourceTree = "<group>"; };
-		2BB120432F1D186600E7231C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		2BB120402F1D186600E7231C /* AppleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInButton.swift; sourceTree = "<group>"; };
+		2BB120412F1D186600E7231C /* AppleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInManager.swift; sourceTree = "<group>"; };
 		2BB120442F1D186600E7231C /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		2BB120462F1D186600E7231C /* ImageDownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderView.swift; sourceTree = "<group>"; };
 		2BB120482F1D186600E7231C /* ImageViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerView.swift; sourceTree = "<group>"; };
@@ -37,7 +32,6 @@
 		2BB1204C2F1D186600E7231C /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
 		2BB1204D2F1D186600E7231C /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		2BB1204F2F1D186600E7231C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2BB120502F1D186600E7231C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GoogleService-Info.plist; sourceTree = "<group>"; };
 		2BB120512F1D186600E7231C /* ImageViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageViewer.entitlements; sourceTree = "<group>"; };
 		A1000007000000000000001 /* ImageViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -65,10 +59,8 @@
 		2BB120452F1D186600E7231C /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				2BB120402F1D186600E7231C /* GoogleSignInButton.swift */,
-				2BB120412F1D186600E7231C /* GoogleSignInManager.swift */,
-				2BB120422F1D186600E7231C /* SignInSheetView.swift */,
-				2BB120432F1D186600E7231C /* SignInViewController.swift */,
+				2BB120402F1D186600E7231C /* AppleSignInButton.swift */,
+				2BB120412F1D186600E7231C /* AppleSignInManager.swift */,
 				2BB120442F1D186600E7231C /* UserSession.swift */,
 			);
 			path = Authentication;
@@ -114,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				2BB1204F2F1D186600E7231C /* Assets.xcassets */,
-				2BB120502F1D186600E7231C /* GoogleService-Info.plist */,
 				2BB120512F1D186600E7231C /* ImageViewer.entitlements */,
 			);
 			path = "Supporting Files";
@@ -205,7 +196,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BB120602F1D186600E7231C /* GoogleService-Info.plist in Resources */,
 				2BB120612F1D186600E7231C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,14 +209,12 @@
 			files = (
 				2BB120542F1D186600E7231C /* AppFeature.swift in Sources */,
 				2BB120552F1D186600E7231C /* ImageViewerView.swift in Sources */,
-				2BB120562F1D186600E7231C /* GoogleSignInButton.swift in Sources */,
+				2BB120562F1D186600E7231C /* AppleSignInButton.swift in Sources */,
 				2BB120572F1D186600E7231C /* ImageViewerApp.swift in Sources */,
 				2BB120582F1D186600E7231C /* ImageViewModel.swift in Sources */,
 				2BB120592F1D186600E7231C /* ImageDownloaderView.swift in Sources */,
-				2BB1205A2F1D186600E7231C /* SignInSheetView.swift in Sources */,
-				2BB1205B2F1D186600E7231C /* GoogleSignInManager.swift in Sources */,
+				2BB1205B2F1D186600E7231C /* AppleSignInManager.swift in Sources */,
 				2BB1205C2F1D186600E7231C /* UserSession.swift in Sources */,
-				2BB1205D2F1D186600E7231C /* SignInViewController.swift in Sources */,
 				2BB1205E2F1D186600E7231C /* SidebarView.swift in Sources */,
 				2BB1205F2F1D186600E7231C /* ContentView.swift in Sources */,
 			);
