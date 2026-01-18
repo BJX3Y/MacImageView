@@ -1,6 +1,6 @@
 # 图片工具
 
-一个功能丰富的macOS图片工具应用，包含图片查看器和图片下载器等多个功能模块。
+一个功能丰富的 macOS 图片工具应用，包含图片查看器、图片下载器和用户认证等多个功能模块。
 
 ## 功能特性
 
@@ -14,6 +14,12 @@
 ### 图片下载器（开发中）
 - 即将推出
 
+### 用户认证
+- 支持 Apple Sign-In 登录
+- 支持微信登录
+- 登录后显示用户头像和信息
+- 侧边栏显示登录状态
+
 ## 支持的图片格式
 
 - JPG/JPEG
@@ -25,10 +31,10 @@
 
 ## 运行方法
 
-### 使用Xcode（推荐）
+### 使用 Xcode（推荐）
 
 1. 双击打开 `ImageViewer.xcodeproj` 文件
-2. 在Xcode中选择 `ImageViewer` scheme
+2. 在 Xcode 中选择 `ImageViewer` scheme
 3. 点击运行按钮（或按 `Cmd + R`）
 
 ### 使用命令行
@@ -50,6 +56,15 @@ xcodebuild -project ImageViewer.xcodeproj -scheme ImageViewer -configuration Deb
    - 点击界面上的上下箭头按钮
 5. 点击"更换文件夹"可以重新选择其他文件夹
 
+### 用户登录
+
+1. 点击侧边栏底部的"使用微信登录"按钮
+2. 在登录弹窗中选择登录方式：
+   - 使用微信登录（主要方式）
+   - 使用 Apple 登录（备选方式）
+3. 完成登录后，侧边栏将显示用户头像和信息
+4. 点击头像旁的退出按钮可以退出登录
+
 ### 侧边栏导航
 
 应用使用侧边栏导航来切换不同的功能模块：
@@ -60,30 +75,46 @@ xcodebuild -project ImageViewer.xcodeproj -scheme ImageViewer -configuration Deb
 
 - Swift 5.0+
 - SwiftUI
+- Combine
+- AuthenticationServices (Apple Sign-In)
 - macOS 13.0+
 
 ## 项目结构
 
 ```
 image_view/
-├── ImageViewer.xcodeproj/       # Xcode项目文件
+├── ImageViewer.xcodeproj/       # Xcode 项目文件
 ├── ImageViewer/                 # 应用源代码
-│   ├── ImageViewerApp.swift     # 主应用入口
-│   ├── ContentView.swift       # 主视图（管理侧边栏和内容区域）
-│   ├── AppFeature.swift        # 功能模块枚举
-│   ├── SidebarView.swift       # 侧边栏导航视图
-│   ├── ImageViewerView.swift   # 图片查看器视图
-│   ├── ImageDownloaderView.swift # 图片下载器视图
-│   ├── ImageViewModel.swift    # 图片查看器视图模型
-│   ├── Assets.xcassets/         # 应用资源
-│   └── ImageViewer.entitlements # 应用权限配置
+│   ├── App/                     # 应用入口
+│   │   ├── ImageViewerApp.swift
+│   │   └── ContentView.swift
+│   ├── Features/                # 功能模块
+│   │   ├── Authentication/      # 认证功能
+│   │   │   ├── AppleSignInManager.swift
+│   │   │   ├── WeChatSignInManager.swift
+│   │   │   ├── UserSession.swift
+│   │   │   ├── AppleSignInButton.swift
+│   │   │   └── WeChatSignInButton.swift
+│   │   ├── ImageDownloader/     # 图片下载功能
+│   │   │   └── ImageDownloaderView.swift
+│   │   └── ImageViewer/         # 图片查看功能
+│   │       ├── ImageViewerView.swift
+│   │       └── ImageViewModel.swift
+│   ├── Shared/                  # 共享组件
+│   │   ├── AppFeature.swift
+│   │   └── SidebarView.swift
+│   └── Supporting Files/         # 支持文件
+│       ├── Assets.xcassets/
+│       └── ImageViewer.entitlements
 ├── README.md                    # 使用说明
-└── .gitignore                   # Git忽略文件
+├── PROJECT_STRUCTURE.md         # 项目结构说明
+└── .gitignore                   # Git 忽略文件
 ```
 
 ## 开发计划
 
 - [x] 实现图片查看器功能
+- [x] 实现用户认证功能（Apple Sign-In 和微信登录）
 - [ ] 实现图片下载器功能
 - [ ] 添加图片编辑功能
 - [ ] 支持更多图片格式

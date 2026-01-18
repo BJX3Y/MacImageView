@@ -18,6 +18,8 @@
 		2BB1205E2F1D186600E7231C /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1204D2F1D186600E7231C /* SidebarView.swift */; };
 		2BB1205F2F1D186600E7231C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1203D2F1D186600E7231C /* ContentView.swift */; };
 		2BB120612F1D186600E7231C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1204F2F1D186600E7231C /* Assets.xcassets */; };
+		2BB120622F1D186700E7231C /* WeChatSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120602F1D186700E7231C /* WeChatSignInManager.swift */; };
+		2BB120632F1D186700E7231C /* WeChatSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120612F1D186700E7231C /* WeChatSignInButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		2BB1204D2F1D186600E7231C /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		2BB1204F2F1D186600E7231C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BB120512F1D186600E7231C /* ImageViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageViewer.entitlements; sourceTree = "<group>"; };
+		2BB120602F1D186700E7231C /* WeChatSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatSignInManager.swift; sourceTree = "<group>"; };
+		2BB120612F1D186700E7231C /* WeChatSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatSignInButton.swift; sourceTree = "<group>"; };
 		A1000007000000000000001 /* ImageViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -61,6 +65,8 @@
 			children = (
 				2BB120402F1D186600E7231C /* AppleSignInButton.swift */,
 				2BB120412F1D186600E7231C /* AppleSignInManager.swift */,
+				2BB120602F1D186700E7231C /* WeChatSignInManager.swift */,
+				2BB120612F1D186700E7231C /* WeChatSignInButton.swift */,
 				2BB120442F1D186600E7231C /* UserSession.swift */,
 			);
 			path = Authentication;
@@ -217,6 +223,8 @@
 				2BB1205C2F1D186600E7231C /* UserSession.swift in Sources */,
 				2BB1205E2F1D186600E7231C /* SidebarView.swift in Sources */,
 				2BB1205F2F1D186600E7231C /* ContentView.swift in Sources */,
+				2BB120622F1D186700E7231C /* WeChatSignInManager.swift in Sources */,
+				2BB120632F1D186700E7231C /* WeChatSignInButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +353,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "ImageViewer/Supporting Files/ImageViewer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -370,7 +377,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "ImageViewer/Supporting Files/ImageViewer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;

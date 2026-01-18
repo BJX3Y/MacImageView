@@ -61,7 +61,7 @@ struct SidebarView: View {
         .frame(width: 220)
         .background(Color(NSColor.windowBackgroundColor))
         .sheet(isPresented: $showSignIn) {
-            AppleSignInSheetView(isPresented: $showSignIn)
+            SignInSheetView(isPresented: $showSignIn)
         }
     }
 
@@ -70,15 +70,15 @@ struct SidebarView: View {
             showSignIn = true
         }) {
             HStack(spacing: 8) {
-                Image(systemName: "applelogo")
+                Image(systemName: "message.fill")
                     .font(.system(size: 20))
-                Text("使用 Apple 登录")
+                Text("微信登录")
                     .font(.system(size: 13))
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
             .frame(maxWidth: .infinity)
-            .background(Color.black)
+            .background(Color(red: 0.07, green: 0.63, blue: 0.48))
             .foregroundColor(.white)
             .cornerRadius(8)
         }
@@ -128,7 +128,7 @@ struct SidebarView: View {
     }
 }
 
-struct AppleSignInSheetView: View {
+struct SignInSheetView: View {
     @Binding var isPresented: Bool
     @StateObject private var userSession = UserSession.shared
     @Environment(\.dismiss) private var dismiss
@@ -139,27 +139,38 @@ struct AppleSignInSheetView: View {
                 .font(.system(size: 24, weight: .bold))
                 .padding(.top, 32)
 
-            Text("使用您的 Apple ID 登录以访问所有功能")
+            Text("选择登录方式")
                 .font(.system(size: 14))
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 32)
 
-            AppleSignInButton {
-                performSignIn()
+            VStack(spacing: 16) {
+                WeChatSignInButton {
+                    performWeChatSignIn()
+                }
+
+                AppleSignInButton {
+                    performAppleSignIn()
+                }
             }
             .padding(.horizontal, 32)
 
             Spacer()
         }
-        .frame(width: 400, height: 300)
+        .frame(width: 400, height: 350)
         .background(Color(NSColor.windowBackgroundColor))
     }
 
-    private func performSignIn() {
+    private func performWeChatSignIn() {
+        userSession.loginWithWeChat()
+        isPresented = false
+    }
+
+    private func performAppleSignIn() {
         if let window = NSApplication.shared.keyWindow,
            let viewController = window.contentViewController {
-            userSession.login(presenting: viewController)
+            userSession.loginWithApple(presenting: viewController)
             isPresented = false
         }
     }
