@@ -20,6 +20,8 @@
 		2BB120612F1D186600E7231C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1204F2F1D186600E7231C /* Assets.xcassets */; };
 		2BB120622F1D186700E7231C /* WeChatSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120602F1D186700E7231C /* WeChatSignInManager.swift */; };
 		2BB120632F1D186700E7231C /* WeChatSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120612F1D186700E7231C /* WeChatSignInButton.swift */; };
+		2BB1208B2F1DDE7100E7231C /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1208A2F1DDE7100E7231C /* UserProfileView.swift */; };
+		2BB1208C2F1DDE7100E7231C /* QRCodeLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120892F1DDE7100E7231C /* QRCodeLoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		2BB120512F1D186600E7231C /* ImageViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageViewer.entitlements; sourceTree = "<group>"; };
 		2BB120602F1D186700E7231C /* WeChatSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatSignInManager.swift; sourceTree = "<group>"; };
 		2BB120612F1D186700E7231C /* WeChatSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatSignInButton.swift; sourceTree = "<group>"; };
+		2BB120892F1DDE7100E7231C /* QRCodeLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeLoginView.swift; sourceTree = "<group>"; };
+		2BB1208A2F1DDE7100E7231C /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		A1000007000000000000001 /* ImageViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -63,6 +67,8 @@
 		2BB120452F1D186600E7231C /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				2BB120892F1DDE7100E7231C /* QRCodeLoginView.swift */,
+				2BB1208A2F1DDE7100E7231C /* UserProfileView.swift */,
 				2BB120402F1D186600E7231C /* AppleSignInButton.swift */,
 				2BB120412F1D186600E7231C /* AppleSignInManager.swift */,
 				2BB120602F1D186700E7231C /* WeChatSignInManager.swift */,
@@ -215,6 +221,8 @@
 			files = (
 				2BB120542F1D186600E7231C /* AppFeature.swift in Sources */,
 				2BB120552F1D186600E7231C /* ImageViewerView.swift in Sources */,
+				2BB1208B2F1DDE7100E7231C /* UserProfileView.swift in Sources */,
+				2BB1208C2F1DDE7100E7231C /* QRCodeLoginView.swift in Sources */,
 				2BB120562F1D186600E7231C /* AppleSignInButton.swift in Sources */,
 				2BB120572F1D186600E7231C /* ImageViewerApp.swift in Sources */,
 				2BB120582F1D186600E7231C /* ImageViewModel.swift in Sources */,

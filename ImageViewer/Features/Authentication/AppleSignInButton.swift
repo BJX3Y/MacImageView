@@ -20,10 +20,3 @@ struct AppleSignInButton: View {
         .buttonStyle(PlainButtonStyle())
     }
 }
-
-#Preview {
-    AppleSignInButton {
-        print("Sign in with Apple tapped")
-    }
-    .frame(width: 250, height: 100)
-}

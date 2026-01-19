@@ -3,10 +3,15 @@ import SwiftUI
 @main
 struct ImageViewerApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject private var userSession = UserSession.shared
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if userSession.isLoggedIn {
+                ContentView()
+            } else {
+                QRCodeLoginView()
+            }
         }
         .windowStyle(.hiddenTitleBar)
         .windowResizability(.contentSize)

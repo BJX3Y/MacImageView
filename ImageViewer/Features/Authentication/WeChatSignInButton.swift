@@ -19,10 +19,3 @@ struct WeChatSignInButton: View {
         .buttonStyle(PlainButtonStyle())
     }
 }
-
-#Preview {
-    WeChatSignInButton {
-        print("WeChat Sign In tapped")
-    }
-    .frame(width: 250, height: 100)
-}
