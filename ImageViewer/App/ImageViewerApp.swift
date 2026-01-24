@@ -10,7 +10,8 @@ struct ImageViewerApp: App {
             if userSession.isLoggedIn {
                 ContentView()
             } else {
-                QRCodeLoginView()
+//                QRCodeLoginView()
+                ContentView()
             }
         }
         .windowStyle(.hiddenTitleBar)

@@ -75,6 +75,34 @@ struct ImageViewerView: View {
             }
             .padding()
 
+            if !viewModel.currentFolderPath.isEmpty {
+                HStack {
+                    Image(systemName: "folder")
+                        .font(.system(size: 12))
+                        .foregroundColor(.secondary)
+                    Text(viewModel.currentFolderPath)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 4)
+            }
+
+            if !viewModel.currentImagePath.isEmpty {
+                HStack {
+                    Image(systemName: "doc.images")
+                        .font(.system(size: 12))
+                        .foregroundColor(.secondary)
+                    Text(viewModel.currentImagePath)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 8)
+            }
+
             Divider()
 
             if let currentImage = viewModel.currentImage {
@@ -94,27 +122,30 @@ struct ImageViewerView: View {
             Divider()
 
             HStack {
+                Spacer()
+
                 Button(action: {
                     viewModel.previousImage()
                 }) {
-                    Image(systemName: "chevron.up")
+                    Image(systemName: "chevron.left")
                         .font(.title2)
                         .frame(width: 40, height: 40)
                 }
                 .buttonStyle(.plain)
                 .disabled(viewModel.currentIndex == 0)
-
-                Spacer()
+                .padding(.horizontal, 20)
 
                 Button(action: {
                     viewModel.nextImage()
                 }) {
-                    Image(systemName: "chevron.down")
+                    Image(systemName: "chevron.right")
                         .font(.title2)
                         .frame(width: 40, height: 40)
                 }
                 .buttonStyle(.plain)
                 .disabled(viewModel.currentIndex == viewModel.images.count - 1)
+
+                Spacer()
             }
             .padding()
         }

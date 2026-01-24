@@ -5,8 +5,11 @@ class ImageViewModel: ObservableObject {
     @Published var images: [NSImage] = []
     @Published var currentIndex: Int = 0
     @Published var currentImage: NSImage?
+    @Published var currentFolderPath: String = ""
+    @Published var currentImagePath: String = ""
 
     private let supportedExtensions = ["jpg", "jpeg", "png", "gif", "bmp", "tiff", "webp"]
+    private var imagePaths: [String] = []
 
     var currentImageName: String {
         guard currentIndex < images.count else { return "" }
@@ -36,7 +39,7 @@ class ImageViewModel: ObservableObject {
     }
 
     private func loadImagesFromFolder(_ folderURL: URL) {
-        var loadedImages: [NSImage] = []
+        var imageFileURLs: [URL] = []
 
         if let enumerator = FileManager.default.enumerator(at: folderURL, includingPropertiesForKeys: [.isDirectoryKey], options: [.skipsHiddenFiles]) {
             for case let fileURL as URL in enumerator {
@@ -48,9 +51,7 @@ class ImageViewModel: ObservableObject {
 
                     let pathExtension = fileURL.pathExtension.lowercased()
                     if supportedExtensions.contains(pathExtension) {
-                        if let image = NSImage(contentsOf: fileURL) {
-                            loadedImages.append(image)
-                        }
+                        imageFileURLs.append(fileURL)
                     }
                 } catch {
                     continue
@@ -58,9 +59,34 @@ class ImageViewModel: ObservableObject {
             }
         }
 
+        // 按照文件夹名称 + 文件名称排序
+        imageFileURLs.sort { (url1, url2) -> Bool in
+            let folderName1 = url1.deletingLastPathComponent().lastPathComponent
+            let folderName2 = url2.deletingLastPathComponent().lastPathComponent
+            let fileName1 = url1.lastPathComponent
+            let fileName2 = url2.lastPathComponent
+
+            if folderName1 == folderName2 {
+                return fileName1 < fileName2
+            }
+            return folderName1 < folderName2
+        }
+
+        var loadedImages: [NSImage] = []
+        var loadedImagePaths: [String] = []
+
+        for fileURL in imageFileURLs {
+            if let image = NSImage(contentsOf: fileURL) {
+                loadedImages.append(image)
+                loadedImagePaths.append(fileURL.path)
+            }
+        }
+
         DispatchQueue.main.async {
             self.images = loadedImages
+            self.imagePaths = loadedImagePaths
             self.currentIndex = 0
+            self.currentFolderPath = folderURL.path
             self.updateCurrentImage()
         }
     }
@@ -80,8 +106,10 @@ class ImageViewModel: ObservableObject {
     private func updateCurrentImage() {
         guard currentIndex < images.count else {
             currentImage = nil
+            currentImagePath = ""
             return
         }
         currentImage = images[currentIndex]
+        currentImagePath = currentIndex < imagePaths.count ? imagePaths[currentIndex] : ""
     }
 }
