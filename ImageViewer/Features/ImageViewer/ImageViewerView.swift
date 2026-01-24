@@ -3,6 +3,8 @@ import AppKit
 
 struct ImageViewerView: View {
     @StateObject private var viewModel = ImageViewModel()
+    @ObservedObject private var config = AppConfig.shared
+    @State private var isFullScreen = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -17,6 +19,13 @@ struct ImageViewerView: View {
         .onAppear {
             viewModel.loadImages()
         }
+        .sheet(isPresented: $isFullScreen) {
+            FullScreenImageView(viewModel: viewModel, isComicMode: config.imageViewMode == AppConfig.ViewMode.comic, isFullScreen: $isFullScreen)
+        }
+    }
+
+    private func toggleFullScreen() {
+        isFullScreen.toggle()
     }
 
     private var emptyStateView: some View {
@@ -69,9 +78,26 @@ struct ImageViewerView: View {
 
                 Spacer()
 
-                Text("\(viewModel.currentIndex + 1) / \(viewModel.images.count)")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                HStack(spacing: 12) {
+                    Text("\(viewModel.currentIndex + 1) / \(viewModel.images.count)")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+
+                    Text(config.imageViewMode.rawValue)
+                        .font(.caption)
+                        .foregroundColor(.accentColor)
+
+                    Button(action: {
+                        toggleFullScreen()
+                    }) {
+                        Image(systemName: isFullScreen ? "arrow.down.to.line" : "arrow.up.to.line")
+                            .font(.system(size: 14))
+                            .padding(6)
+                            .background(Color.accentColor.opacity(0.1))
+                            .cornerRadius(6)
+                    }
+                    .buttonStyle(.plain)
+                }
             }
             .padding()
 
@@ -105,49 +131,82 @@ struct ImageViewerView: View {
 
             Divider()
 
-            if let currentImage = viewModel.currentImage {
-                GeometryReader { geometry in
-                    Image(nsImage: currentImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
+            if config.imageViewMode == .comic {
+                // 漫画模式：垂直滚动显示所有图片
+                ScrollView {
+                    VStack(spacing: 20) {
+                        ForEach(0..<viewModel.images.count, id: \.self) {
+                            index in
+                            if index < viewModel.images.count {
+                                VStack(spacing: 8) {
+                                    Text(index < viewModel.imagePaths.count ? viewModel.imagePaths[index].components(separatedBy: "/").last ?? "Image \(index + 1)" : "Image \(index + 1)")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                    if let image = viewModel.images[index] ?? viewModel.loadImage(at: index) {
+                                        Image(nsImage: image)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(maxWidth: .infinity)
+                                    } else {
+                                        ProgressView()
+                                            .frame(height: 200)
+                                    }
+                                }
+                                .padding(.horizontal, 20)
+                                .onAppear {
+                                    viewModel.preloadImages(around: index)
+                                }
+                            }
+                        }
+                    }
+                    .padding(.vertical, 20)
                 }
             } else {
-                Spacer()
-                Text("无法加载图片")
-                    .foregroundColor(.secondary)
-                Spacer()
-            }
-
-            Divider()
-
-            HStack {
-                Spacer()
-
-                Button(action: {
-                    viewModel.previousImage()
-                }) {
-                    Image(systemName: "chevron.left")
-                        .font(.title2)
-                        .frame(width: 40, height: 40)
+                // 标准模式：单张图片显示
+                if let currentImage = viewModel.currentImage {
+                    GeometryReader { geometry in
+                        Image(nsImage: currentImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
+                    }
+                } else {
+                    Spacer()
+                    Text("无法加载图片")
+                        .foregroundColor(.secondary)
+                    Spacer()
                 }
-                .buttonStyle(.plain)
-                .disabled(viewModel.currentIndex == 0)
-                .padding(.horizontal, 20)
 
-                Button(action: {
-                    viewModel.nextImage()
-                }) {
-                    Image(systemName: "chevron.right")
-                        .font(.title2)
-                        .frame(width: 40, height: 40)
+                Divider()
+
+                HStack {
+                    Spacer()
+
+                    Button(action: {
+                        viewModel.previousImage()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .font(.title2)
+                            .frame(width: 40, height: 40)
+                    }
+                    .buttonStyle(.plain)
+                    .disabled(viewModel.currentIndex == 0)
+                    .padding(.horizontal, 20)
+
+                    Button(action: {
+                        viewModel.nextImage()
+                    }) {
+                        Image(systemName: "chevron.right")
+                            .font(.title2)
+                            .frame(width: 40, height: 40)
+                    }
+                    .buttonStyle(.plain)
+                    .disabled(viewModel.currentIndex == viewModel.images.count - 1)
+
+                    Spacer()
                 }
-                .buttonStyle(.plain)
-                .disabled(viewModel.currentIndex == viewModel.images.count - 1)
-
-                Spacer()
+                .padding()
             }
-            .padding()
         }
     }
 }
@@ -181,3 +240,5 @@ struct KeyHandlerView: NSViewRepresentable {
         var monitor: Any?
     }
 }
+
+

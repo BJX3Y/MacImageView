@@ -2,14 +2,15 @@ import SwiftUI
 import AppKit
 
 class ImageViewModel: ObservableObject {
-    @Published var images: [NSImage] = []
+    @Published var images: [NSImage?] = []
     @Published var currentIndex: Int = 0
     @Published var currentImage: NSImage?
     @Published var currentFolderPath: String = ""
     @Published var currentImagePath: String = ""
-
+    
     private let supportedExtensions = ["jpg", "jpeg", "png", "gif", "bmp", "tiff", "webp"]
-    private var imagePaths: [String] = []
+    var imagePaths: [String] = []
+    private var config = AppConfig.shared
 
     var currentImageName: String {
         guard currentIndex < images.count else { return "" }
@@ -72,34 +73,63 @@ class ImageViewModel: ObservableObject {
             return folderName1 < folderName2
         }
 
-        var loadedImages: [NSImage] = []
         var loadedImagePaths: [String] = []
 
         for fileURL in imageFileURLs {
-            if let image = NSImage(contentsOf: fileURL) {
-                loadedImages.append(image)
-                loadedImagePaths.append(fileURL.path)
-            }
+            loadedImagePaths.append(fileURL.path)
         }
 
         DispatchQueue.main.async {
-            self.images = loadedImages
+            self.images = Array(repeating: nil, count: loadedImagePaths.count)
             self.imagePaths = loadedImagePaths
             self.currentIndex = 0
             self.currentFolderPath = folderURL.path
+            self.preloadImages(around: 0)
             self.updateCurrentImage()
+        }
+    }
+
+    func loadImage(at index: Int) -> NSImage? {
+        guard index >= 0, index < imagePaths.count else { return nil }
+        
+        if let existingImage = images[index] {
+            return existingImage
+        }
+        
+        let imagePath = imagePaths[index]
+        if let image = NSImage(contentsOfFile: imagePath) {
+            DispatchQueue.main.async {
+                self.images[index] = image
+            }
+            return image
+        }
+        
+        return nil
+    }
+
+    func preloadImages(around index: Int) {
+        let preloadCount = 10
+        let startIndex = max(0, index - preloadCount / 2)
+        let endIndex = min(imagePaths.count - 1, index + preloadCount / 2)
+        
+        for i in startIndex...endIndex {
+            if images[i] == nil {
+                loadImage(at: i)
+            }
         }
     }
 
     func nextImage() {
         guard currentIndex < images.count - 1 else { return }
         currentIndex += 1
+        preloadImages(around: currentIndex)
         updateCurrentImage()
     }
 
     func previousImage() {
         guard currentIndex > 0 else { return }
         currentIndex -= 1
+        preloadImages(around: currentIndex)
         updateCurrentImage()
     }
 
@@ -109,7 +139,7 @@ class ImageViewModel: ObservableObject {
             currentImagePath = ""
             return
         }
-        currentImage = images[currentIndex]
+        currentImage = images[currentIndex] ?? loadImage(at: currentIndex)
         currentImagePath = currentIndex < imagePaths.count ? imagePaths[currentIndex] : ""
     }
 }

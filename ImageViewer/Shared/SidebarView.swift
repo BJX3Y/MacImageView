@@ -4,6 +4,7 @@ struct SidebarView: View {
     @Binding var selectedFeature: AppFeature
     @StateObject private var userSession = UserSession.shared
     @State private var showUserProfile = false
+    @State private var showSettings = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -37,6 +38,28 @@ struct SidebarView: View {
                     .padding(.horizontal, 8)
                     .padding(.vertical, 2)
                 }
+                
+                Button(action: {
+                    showSettings = true
+                }) {
+                    HStack(spacing: 12) {
+                        Image(systemName: "gear")
+                            .font(.system(size: 16))
+                            .frame(width: 20)
+
+                        Text("设置")
+                            .font(.system(size: 14))
+
+                        Spacer()
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background(Color.clear)
+                    .cornerRadius(8)
+                }
+                .buttonStyle(.plain)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 2)
             }
 
             Spacer()
@@ -58,6 +81,9 @@ struct SidebarView: View {
         .background(Color(NSColor.windowBackgroundColor))
         .sheet(isPresented: $showUserProfile) {
             UserProfileView()
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
         }
     }
 
