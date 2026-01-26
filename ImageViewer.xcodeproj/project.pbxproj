@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2939E32AE898308A0C973BCB /* FullScreenImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE6F6C1FC99343DC69E143 /* FullScreenImageView.swift */; };
 		2BA17FDE2F2526DB0003C150 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA17FDC2F2526DB0003C150 /* SettingsView.swift */; };
 		2BA17FDF2F2528ED0003C150 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA17FD92F2525F80003C150 /* AppConfig.swift */; };
 		2BB120542F1D186600E7231C /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1204C2F1D186600E7231C /* AppFeature.swift */; };
@@ -25,6 +24,7 @@
 		2BB120632F1D186700E7231C /* WeChatSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120612F1D186700E7231C /* WeChatSignInButton.swift */; };
 		2BB1208B2F1DDE7100E7231C /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1208A2F1DDE7100E7231C /* UserProfileView.swift */; };
 		2BB1208C2F1DDE7100E7231C /* QRCodeLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB120892F1DDE7100E7231C /* QRCodeLoginView.swift */; };
+		6A3EC3B8E3F0A48A35307989 /* FullScreenImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC1C14797747D60E25EFF8 /* FullScreenImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +46,7 @@
 		2BB120612F1D186700E7231C /* WeChatSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatSignInButton.swift; sourceTree = "<group>"; };
 		2BB120892F1DDE7100E7231C /* QRCodeLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeLoginView.swift; sourceTree = "<group>"; };
 		2BB1208A2F1DDE7100E7231C /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
-		31CE6F6C1FC99343DC69E143 /* FullScreenImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FullScreenImageView.swift; path = FullScreenImageView.swift; sourceTree = "<group>"; };
+		96DC1C14797747D60E25EFF8 /* FullScreenImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FullScreenImageView.swift; path = FullScreenImageView.swift; sourceTree = "<group>"; };
 		A1000007000000000000001 /* ImageViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,7 +105,7 @@
 			children = (
 				2BB120482F1D186600E7231C /* ImageViewerView.swift */,
 				2BB120492F1D186600E7231C /* ImageViewModel.swift */,
-				31CE6F6C1FC99343DC69E143 /* FullScreenImageView.swift */,
+				96DC1C14797747D60E25EFF8 /* FullScreenImageView.swift */,
 			);
 			path = ImageViewer;
 			sourceTree = "<group>";
@@ -252,7 +252,7 @@
 				2BB1205F2F1D186600E7231C /* ContentView.swift in Sources */,
 				2BB120622F1D186700E7231C /* WeChatSignInManager.swift in Sources */,
 				2BB120632F1D186700E7231C /* WeChatSignInButton.swift in Sources */,
-				2939E32AE898308A0C973BCB /* FullScreenImageView.swift in Sources */,
+				6A3EC3B8E3F0A48A35307989 /* FullScreenImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
